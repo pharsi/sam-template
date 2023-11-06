@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+##########################################################################
+#  Parameters                                                            #
+##########################################################################
+Parameters:
+  ServerlessApiGatewayStageName:
+      Type: String
+      Default: dev
+
+##########################################################################
+#  Global values that are applied to all Lambda resources                #
+##########################################################################
+Globals:
+  Function:
+    MemorySize: 128
+    Architectures: ["arm64"]
+    Runtime: nodejs18.x
+    Timeout: 29
+
+
+Resources:
+##########################################################################
+#   Resources: Lambda function                                           #
+##########################################################################
+  sampleLambdaFunction:
+      Type: AWS::Serverless::Function
+      Properties:
+        CodeUri: ./code
+        Handler: index.lambda_handler
+        FunctionName: sample-lambda-function
+        Events:
+          RootEndpoint:
+            Type: Api
+            Properties:
+              RestApiId:
+                Ref: ServerlessApiGateway
+              Method: any
+              Path: /path/subpath
+
+##########################################################################
+#   Resources : Serverless Rest API Gateway                              #
+##########################################################################
+  ServerlessApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      EndpointConfiguration:
+        Type: REGIONAL
+      StageName: !Ref ServerlessApiGatewayStageName
+      MethodSettings:
+        - ResourcePath: /{proxy+}
+          HttpMethod: ANY
+      Name: ServerlessApiGateway
+
+##########################################################################
+#   Outputs:                                                             #
+##########################################################################
+Outputs:
+  RestApiEndpoint:
+    Description: The REST API Gateway endpoint.
+    Value:
+      Fn::Sub:
+        - "https://${ApiId}.execute-api.${AWS::Region}.amazonaws.com/${StageName}/"
+        - ApiId: !Ref ServerlessApiGateway
+          StageName: !Ref ServerlessApiGatewayStageName
