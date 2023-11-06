@@ -1,6 +1,6 @@
 # sam-template
 - This repo hosts a sam template to get started with using REST API GW with a lamba integration using NodeJS
-- This repo will create the resources
+- This repo will create the following resources
     - 1 x AWS REST API GW
     - 1 x AWS Lambda Function
     - 1 x AWS Lambda Role (created implicitly)
@@ -59,9 +59,8 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
 - Use the following command to run a local debugging session<br />
    ``` sam local start-api --warm-containers eager --force-image-build --debug-function sampleLambdaFunction  -d 5678 --region us-east-1 --profile example  --skip-pull-image  --template template.yml``` <br /> 
 
-- Use curl to invoke local lambda function through a local API GW
-<br />
-    ```curl http://127.0.0.1:3000/path/subpath```
+- Use curl to invoke local lambda function through a local API GW<br />
+```curl http://127.0.0.1:3000/path/subpath```
 <br />
 
 # Cleaning up created resources
