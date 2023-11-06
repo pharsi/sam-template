@@ -42,9 +42,9 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
     Note: If the command above fails, use a different name for the parameter ```s3://<S3_Bucket_Name>``` in the ```aws s3 mb``` commad above
 
 - From the root of this repo, invoke AWS SAM CLI like so <br />
-```
-sam deploy -t template.yml --s3-bucket temp-bucket-098723 --capabilities CAPABILITY_IAM  --profile example --region us-east-1  --stack-name "DAU-stack"
-```
+    ```
+    sam deploy -t template.yml --s3-bucket temp-bucket-098723 --capabilities CAPABILITY_IAM  --profile example --region us-east-1  --stack-name "DAU-stack"
+    ```
 
 - The output of the above command will show a REST API GW endpoint integrated with an AWS Lambda function
 - For instance the output of the above command has the URL
@@ -74,9 +74,9 @@ sam deploy -t template.yml --s3-bucket temp-bucket-098723 --capabilities CAPABIL
    <br /> 
 
 - Use curl to invoke local lambda function through a local API GW<br />
-```
-curl http://127.0.0.1:3000/path/subpath
-```
+    ```
+    curl http://127.0.0.1:3000/path/subpath
+    ```
 <br />
 
 # Cleaning up created resources
@@ -86,6 +86,6 @@ curl http://127.0.0.1:3000/path/subpath
     ```
     <br />
 - Delete the AWS S3 Bucket you created earlier <br />
-```
-aws s3 rb s3://temp-bucket-098723 --force --profile example
-```
+    ```
+    aws s3 rb s3://temp-bucket-098723 --force --profile example
+    ```
