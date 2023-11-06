@@ -60,7 +60,9 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
    ``` sam local start-api --warm-containers eager --force-image-build --debug-function sampleLambdaFunction  -d 5678 --region us-east-1 --profile example  --skip-pull-image  --template template.yml``` <br /> 
 
 - Use curl to invoke local lambda function through a local API GW<br />
-```curl http://127.0.0.1:3000/path/subpath```
+```
+curl http://127.0.0.1:3000/path/subpath
+```
 <br />
 
 # Cleaning up created resources
