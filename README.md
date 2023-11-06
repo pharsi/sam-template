@@ -38,7 +38,6 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
     ```
     aws s3 mb s3://temp-bucket-098723 --profile example --region us-east-1
     ```
-    <br /><br />
     Note: If the command above fails, use a different name for the parameter ```s3://<S3_Bucket_Name>``` in the ```aws s3 mb``` commad above
 
 - From the root of this repo, invoke AWS SAM CLI like so <br />
@@ -71,7 +70,6 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
    ```
    sam local start-api --warm-containers eager --force-image-build --debug-function sampleLambdaFunction  -d 5678 --region us-east-1 --profile example  --skip-pull-image  --template template.yml
    ```
-   <br /> 
 
 - Use curl to invoke local lambda function through a local API GW<br />
     ```
@@ -84,7 +82,6 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
     ```
     sam delete  --profile example --region us-east-1 --no-prompts --stack-name "DAU-stack"
     ```
-    <br />
 - Delete the AWS S3 Bucket you created earlier <br />
     ```
     aws s3 rb s3://temp-bucket-098723 --force --profile example
