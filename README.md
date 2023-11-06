@@ -1,10 +1,10 @@
 # sam-template
 - This repo hosts a sam template to get started with using REST API GW with a lamba integration using NodeJS
 - This repo will create the resources
-- - 1 x AWS REST API GW
-- - 1 x AWS Lambda Function
-- - 1 x AWS Lambda Role (created implicitly)
-- - 1 x SAM CLI AWS S3 Bucket
+    - 1 x AWS REST API GW
+    - 1 x AWS Lambda Function
+    - 1 x AWS Lambda Role (created implicitly)
+    - 1 x SAM CLI AWS S3 Bucket
 
 Note: This is not a production-ready code repo, but serves as a quick start <br />
 # What will I get at the end?
