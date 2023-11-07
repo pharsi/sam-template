@@ -45,6 +45,23 @@ Resources:
   ServerlessApiGateway:
     Type: AWS::Serverless::Api
     Properties:
+      Cors:
+      # CorsConfiguration:
+        # HttpApiCorsConfiguration:
+          AllowOrigin: "*"
+          AllowMethods:
+             - GET
+             - HEAD
+             - OPTIONS
+             - POST
+             - PUT
+          AllowHeaders:
+             - Content-Type
+             - Accept
+             - Access-Control-Allow-Headers
+             - Access-Control-Request-Method
+             - Access-Control-Request-Headers
+             - Authorization
       EndpointConfiguration:
         Type: REGIONAL
       StageName: !Ref ServerlessApiGatewayStageName
