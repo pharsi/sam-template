@@ -31,23 +31,45 @@ Resources:
         Handler: index.lambda_handler
         FunctionName: sample-lambda-function
         Events:
-          RootEndpoint:
+          RootEndpointPost:
             Type: Api
             Properties:
               RestApiId:
                 Ref: ServerlessApiGateway
               Method: any
-              Path: /path/subpath
-
+              Path: /v1
+              Auth:
+                Authorizer: NONE
+          RootEndpointGet:
+            Type: Api
+            Properties:
+              RestApiId:
+                Ref: ServerlessApiGateway
+              Method: get
+              Path: /v1
+              Auth:
+                Authorizer: NONE
+          RootEndpointOptions:
+            Type: Api
+            Properties:
+              RestApiId:
+                Ref: ServerlessApiGateway
+              Method: options
+              Path: /v1
+              Auth:
+                Authorizer: NONE
 ##########################################################################
 #   Resources : Serverless Rest API Gateway                              #
 ##########################################################################
   ServerlessApiGateway:
     Type: AWS::Serverless::Api
     Properties:
+      Auth:
+        AddApiKeyRequiredToCorsPreflight: False
+        AddDefaultAuthorizerToCorsPreflight: False
+        ApiKeyRequired: False
+        DefaultAuthorizer: NONE
       Cors:
-      # CorsConfiguration:
-        # HttpApiCorsConfiguration:
           AllowOrigin: "*"
           AllowMethods:
              - GET
