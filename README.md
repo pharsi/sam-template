@@ -26,7 +26,8 @@ Note: This is not a production-ready code repo, but serves as a quick start <br 
     aws configure --profile example
     ```
 - Use the AWS Access Key ID and the Secret Access Key from the IAM user to complete the command above
-- Have AWS SAM CLI installed on your local system (https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)<br />
+- Have AWS SAM CLI installed on your local system (https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
+- Have Docker installed on your local system in case you want to start Local Debugging (see below)<br />
 
 
 # Deploying this repo
